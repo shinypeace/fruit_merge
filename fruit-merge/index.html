@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Fruit Merge — AAA</title>
+    <meta name="theme-color" content="#0c0f14" />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="game-wrapper">
+        <canvas id="game-canvas" width="540" height="960"></canvas>
+        <!-- Overlay UI -->
+        <div id="hud" class="hidden">
+          <div class="hud-top">
+            <div id="score-pill" class="glass pill">Очки: <span id="score-value">0</span></div>
+            <button id="pause-btn" class="glass btn">⏸ Пауза</button>
+          </div>
+          <div id="combo-banner" class="combo hidden"></div>
+        </div>
+
+        <!-- Main Menu -->
+        <div id="menu-screen" class="screen">
+          <div class="logo">
+            <div class="logo-fruit">🍉</div>
+            <div class="logo-text">Fruit Merge</div>
+            <div class="logo-sub">Собери идеальный фрукт</div>
+          </div>
+          <div class="menu-buttons">
+            <button id="play-btn" class="cta primary">Играть</button>
+            <button id="stats-btn" class="cta secondary">Статистика</button>
+          </div>
+          <div class="credits">v1.0 • AAA Canvas • Matter.js</div>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pause-screen" class="screen hidden">
+          <div class="panel glass">
+            <div class="panel-title">Пауза</div>
+            <div class="panel-actions">
+              <button id="resume-btn" class="cta primary">Продолжить</button>
+              <button id="retry-btn" class="cta secondary">Заново</button>
+              <button id="to-menu-btn" class="cta tertiary">В меню</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Over -->
+        <div id="gameover-screen" class="screen hidden">
+          <div class="panel glass">
+            <div class="panel-title">Игра окончена</div>
+            <div class="score-row">Очки: <span id="final-score">0</span></div>
+            <div class="panel-actions">
+              <button id="retry-btn-2" class="cta primary">Играть снова</button>
+              <button id="to-menu-btn-2" class="cta secondary">В меню</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Screen -->
+        <div id="stats-screen" class="screen hidden">
+          <div class="panel glass">
+            <div class="panel-title">Статистика</div>
+            <div class="stats-grid">
+              <div class="stat"><div class="k">Лучший счёт</div><div class="v" id="stat-best">0</div></div>
+              <div class="stat"><div class="k">Игр сыграно</div><div class="v" id="stat-games">0</div></div>
+              <div class="stat"><div class="k">Слияний всего</div><div class="v" id="stat-merges">0</div></div>
+              <div class="stat"><div class="k">Макс. комбо</div><div class="v" id="stat-max-combo">0</div></div>
+              <div class="stat"><div class="k">Макс. фрукт</div><div class="v" id="stat-max-fruit">—</div></div>
+              <div class="stat"><div class="k">Время в игре</div><div class="v" id="stat-playtime">0 мин</div></div>
+            </div>
+            <div class="panel-actions">
+              <button id="back-from-stats" class="cta tertiary">Назад</button>
+              <button id="reset-stats" class="cta danger">Сбросить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Matter.js -->
+    <script src="https://unpkg.com/matter-js@0.20.0/build/matter.min.js"></script>
+    <script src="./src/particles.js"></script>
+    <script src="./src/fruit.js"></script>
+    <script src="./src/game.js"></script>
+  </body>
+</html>
